@@ -178,6 +178,41 @@ export default function ScrollStorytelling() {
           </div>
         </div>
       </section>
+
+      {/* SECTION 4 — Holistic Wellness */}
+      <section className="min-h-screen flex items-center justify-center px-8 py-24 bg-brand-blue-dark text-white overflow-hidden relative">
+        <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-brand-gold/50 to-transparent" />
+        <div className="max-w-4xl mx-auto text-center space-y-12 relative z-10">
+          <h2 className="text-sm uppercase tracking-[0.4em] text-brand-gold font-bold">
+            Beyond Beauty
+          </h2>
+          <h3 className="text-5xl md:text-7xl font-serif italic">
+            Holistic Wellness
+          </h3>
+          <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+            Because true radiance comes from within. Complement your treatments
+            with our professional massages, prescriptive facials, and luxury
+            nail care. A complete sanctuary in the heart of Douala.
+          </p>
+          <div className="flex flex-wrap justify-center gap-8 pt-8">
+            {[
+              "Massage Équilibrant",
+              "Soin Visage Expert",
+              "Manucure & Pédicure",
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="px-8 py-4 border border-white/10 rounded-full text-xs uppercase tracking-widest hover:border-brand-gold transition-colors cursor-default"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Decorative elements */}
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-brand-gold/10 blur-[120px] rounded-full" />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-brand-blue-dark/50 blur-[120px] rounded-full border border-brand-gold/5" />
+      </section>
     </div>
   );
 }

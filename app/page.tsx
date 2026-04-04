@@ -1,11 +1,13 @@
 import HeroSection from "@/components/HeroSection";
 import ScrollStorytelling from "@/components/ScrollStorytelling";
+import ServicesShowcase from "@/components/ServicesShowcase";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-brand-bg overflow-x-hidden">
-      <main className="flex-grow">
+      <main className="grow">
         <HeroSection />
+        <ServicesShowcase />
         <ScrollStorytelling />
       </main>
 
