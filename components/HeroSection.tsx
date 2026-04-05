@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense, useState, useEffect } from "react";
+import React, { Suspense, useState, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import NavigationBar from "./NavigationBar";
 import PlayButton from "./PlayButton";
@@ -17,7 +17,7 @@ const PearlCapsule3D = React.lazy(() => import("./PearlCapsule3D"));
 export default function HeroSection() {
   const [preset, setPreset] = useState("Medium");
   const [soundEnabled, setSoundEnabled] = useState(false);
-  const [sound, setSound] = useState<Howl | null>(null);
+  const soundRef = useRef<Howl | null>(null);
 
   useEffect(() => {
     const ambientSound = new Howl({
@@ -25,28 +25,32 @@ export default function HeroSection() {
       loop: true,
       volume: 0.05,
     });
-    setSound(ambientSound);
+    soundRef.current = ambientSound;
     return () => {
       ambientSound.unload();
+      soundRef.current = null;
     };
   }, []);
 
   const toggleSound = () => {
-    if (sound) {
-      if (soundEnabled) {
-        sound.pause();
-      } else {
-        sound.play();
-      }
-      setSoundEnabled(!soundEnabled);
+    const sound = soundRef.current;
+    if (!sound) return;
+    if (soundEnabled) {
+      sound.pause();
+    } else {
+      sound.play();
     }
+    setSoundEnabled(!soundEnabled);
   };
 
   return (
     <div className="relative w-full flex items-center justify-center p-4 md:p-12 min-h-[calc(100vh-64px)] overflow-hidden">
       {/* Sound Toggle */}
       <button
+        type="button"
         onClick={toggleSound}
+        aria-pressed={soundEnabled}
+        aria-label={soundEnabled ? "Couper le son ambiant" : "Activer le son ambiant"}
         className="absolute top-8 right-8 z-50 text-brand-blue-dark/50 hover:text-brand-blue-dark text-xs uppercase tracking-widest transition-colors"
       >
         {soundEnabled ? "Sound On" : "Sound Off"}

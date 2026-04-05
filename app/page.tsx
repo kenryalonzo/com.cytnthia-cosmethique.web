@@ -13,7 +13,7 @@ export default function Home() {
 
       <footer className="py-12 px-8 border-t border-brand-blue-dark/5 bg-white text-center">
         <p className="text-brand-muted text-sm uppercase tracking-widest">
-          © 2026 Cynthia Cosmétique • L'art du rituel
+          © 2026 Cynthia Cosmétique • L&apos;art du rituel
         </p>
       </footer>
     </div>

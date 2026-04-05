@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -12,56 +13,71 @@ export default function ScrollStorytelling() {
   const section3Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Section 1 Animation
-    if (section1Ref.current) {
-      gsap.fromTo(
-        section1Ref.current.querySelectorAll(".reveal-text"),
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: section1Ref.current,
-            start: "top 80%",
-          },
-        },
-      );
-    }
+    const ctx = gsap.context(() => {
+      const s1 = section1Ref.current;
+      if (s1) {
+        const reveal = s1.querySelectorAll(".reveal-text");
+        if (reveal.length) {
+          gsap.fromTo(
+            reveal,
+            { y: 50, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              stagger: 0.2,
+              scrollTrigger: {
+                trigger: s1,
+                start: "top 80%",
+              },
+            },
+          );
+        }
+      }
 
-    // Section 2 Animation
-    if (section2Ref.current) {
-      gsap.fromTo(
-        section2Ref.current.querySelector(".parallax-bg"),
-        { y: -50 },
-        {
-          y: 50,
-          ease: "none",
-          scrollTrigger: {
-            trigger: section2Ref.current,
-            scrub: true,
-          },
-        },
-      );
-    }
+      const s2 = section2Ref.current;
+      if (s2) {
+        const parallax = s2.querySelector(".parallax-bg");
+        if (parallax) {
+          gsap.fromTo(
+            parallax,
+            { y: -50 },
+            {
+              y: 50,
+              ease: "none",
+              scrollTrigger: {
+                trigger: s2,
+                scrub: true,
+              },
+            },
+          );
+        }
+      }
 
-    // Section 3 Animation
-    if (section3Ref.current) {
-      gsap.fromTo(
-        section3Ref.current.querySelectorAll(".fade-in"),
-        { opacity: 0, scale: 0.95 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 1.5,
-          scrollTrigger: {
-            trigger: section3Ref.current,
-            start: "top 70%",
-          },
-        },
-      );
-    }
+      const s3 = section3Ref.current;
+      if (s3) {
+        const fade = s3.querySelectorAll(".fade-in");
+        if (fade.length) {
+          gsap.fromTo(
+            fade,
+            { opacity: 0, scale: 0.95 },
+            {
+              opacity: 1,
+              scale: 1,
+              duration: 1.5,
+              scrollTrigger: {
+                trigger: s3,
+                start: "top 70%",
+              },
+            },
+          );
+        }
+      }
+    });
+
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -111,16 +127,20 @@ export default function ScrollStorytelling() {
                 illuminate your complexion. A 90-minute journey to pure
                 radiance.
               </p>
-              <button className="px-8 py-4 border border-brand-blue-dark text-brand-blue-dark uppercase tracking-widest text-sm font-bold hover:bg-brand-blue-dark hover:text-white transition-colors">
+              <button
+                type="button"
+                className="px-8 py-4 border border-brand-blue-dark text-brand-blue-dark uppercase tracking-widest text-sm font-bold hover:bg-brand-blue-dark hover:text-white transition-colors"
+              >
                 Book Treatment
               </button>
             </div>
             <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=1000"
-                alt="Luxury Spa Treatment"
-                className="absolute inset-0 w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+              <Image
+                src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=1200"
+                alt="Soin spa de luxe"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-brand-blue-dark/20 mix-blend-overlay" />
             </div>

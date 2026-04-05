@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useMemo } from "react";
+import { useRef, useMemo, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { Environment, Points, PointMaterial, Sphere } from "@react-three/drei";
 import * as THREE from "three";
@@ -9,7 +9,7 @@ export default function PearlCapsule3D({ preset }: { preset: string }) {
   const groupRef = useRef<THREE.Group>(null);
   const innerSphereRef = useRef<THREE.Mesh>(null);
   const particlesRef = useRef<THREE.Points>(null);
-  const { mouse, viewport } = useThree();
+  const { mouse } = useThree();
 
   // Preset colors
   const coreColor = useMemo(() => {
@@ -24,9 +24,8 @@ export default function PearlCapsule3D({ preset }: { preset: string }) {
     }
   }, [preset]);
 
-  // Particles
   const particleCount = 300;
-  const particlesPosition = useMemo(() => {
+  const [particlesPosition] = useState(() => {
     const positions = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount; i++) {
       const r = 2.5 + Math.random() * 2;
@@ -37,7 +36,7 @@ export default function PearlCapsule3D({ preset }: { preset: string }) {
       positions[i * 3 + 2] = r * Math.cos(phi);
     }
     return positions;
-  }, []);
+  });
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime();

@@ -19,6 +19,8 @@ export default function LightPresets({
         {presets.map((preset) => (
           <button
             key={preset}
+            type="button"
+            aria-pressed={active === preset}
             onClick={() => {
               setActive(preset);
               onPresetChange(preset);

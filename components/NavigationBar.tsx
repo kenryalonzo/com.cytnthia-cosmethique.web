@@ -59,12 +59,14 @@ export default function NavigationBar() {
       {/* Right: Icons */}
       <div className="flex items-center space-x-8">
         <button
+          type="button"
           className="text-brand-blue-dark hover:text-brand-gold transition-colors"
           aria-label="User profile"
         >
           <User size={24} strokeWidth={1.5} />
         </button>
         <button
+          type="button"
           className="text-brand-blue-dark hover:text-brand-gold transition-colors"
           aria-label="Menu"
         >

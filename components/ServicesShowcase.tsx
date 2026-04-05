@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 const eyebrowServices = [
   {
@@ -35,25 +36,6 @@ const lashServices = [
   { title: "Méga Volume Russe", price: "20 000 Fcfa" },
 ];
 
-const otherServices = [
-  {
-    title: "Le Candy Lips",
-    price: "20 000 Fcfa",
-    description:
-      "Maquillage permanent des lèvres pour un fini pulpeux et symétrique.",
-  },
-  {
-    title: "Extensions de cils",
-    price: "À partir de 5 000 Fcfa",
-    description: "Pose cil à cil de haute qualité pour sublimer votre regard.",
-  },
-  {
-    title: "Salon d'esthétique",
-    price: "Sur devis",
-    description: "Soins de visage, manucure, pédicure, massage.",
-  },
-];
-
 export default function ServicesShowcase() {
   return (
     <section className="bg-white py-24 px-8 md:px-16" id="services">
@@ -62,7 +44,7 @@ export default function ServicesShowcase() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           <div className="space-y-6 lg:col-span-1">
             <h2 className="text-sm uppercase tracking-[0.3em] text-brand-gold font-bold">
-              L'Art du Regard
+              L&apos;Art du Regard
             </h2>
             <h3 className="text-4xl md:text-5xl font-serif text-brand-blue-dark">
               Sourcils & Harmonie
@@ -104,11 +86,12 @@ export default function ServicesShowcase() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* LIPS CARD */}
           <div className="relative group overflow-hidden rounded-[40px] bg-brand-blue-dark h-[500px]">
-            <img
-              src="https://images.unsplash.com/photo-1595475038784-bbe439ff41e6?auto=format&fit=crop&q=80&w=1000"
-              alt="Candy Lips"
-              className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000"
-              referrerPolicy="no-referrer"
+            <Image
+              src="https://images.unsplash.com/photo-1595475038784-bbe439ff41e6?auto=format&fit=crop&q=80&w=1200"
+              alt="Maquillage permanent Candy Lips"
+              fill
+              className="object-cover opacity-60 transition-transform duration-1000 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-linear-to-t from-brand-blue-dark via-transparent to-transparent" />
             <div className="absolute bottom-12 left-12 right-12 space-y-4">
@@ -126,7 +109,10 @@ export default function ServicesShowcase() {
                 <span className="text-2xl font-black text-brand-gold">
                   20 000 Fcfa
                 </span>
-                <button className="text-xs uppercase tracking-widest text-white border-b border-white/50 pb-1 hover:border-brand-gold transition-colors">
+                <button
+                  type="button"
+                  className="text-xs uppercase tracking-widest text-white border-b border-white/50 pb-1 hover:border-brand-gold transition-colors"
+                >
                   Réserver
                 </button>
               </div>
@@ -171,7 +157,10 @@ export default function ServicesShowcase() {
             </div>
 
             <div className="pt-8 flex items-center space-x-4">
-              <button className="grow py-4 bg-brand-blue-dark text-white text-xs uppercase tracking-widest font-bold rounded-full hover:bg-brand-gold transition-colors">
+              <button
+                type="button"
+                className="grow py-4 bg-brand-blue-dark text-white text-xs uppercase tracking-widest font-bold rounded-full hover:bg-brand-gold transition-colors"
+              >
                 Prendre RDV
               </button>
               <div className="px-6 text-brand-blue-dark/30 text-[10px] uppercase tracking-widest font-bold border-l border-brand-blue-dark/10 leading-tight">
