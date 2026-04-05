@@ -8,32 +8,52 @@ export default function LightPresets({
   onPresetChange: (preset: string) => void;
 }) {
   const [active, setActive] = useState("Medium");
-  const presets = ["Light", "Medium", "Deep"];
+  const presets = ["Light", "Medium", "Deep"] as const;
 
   return (
-    <div className="absolute bottom-[4.35rem] left-1/2 z-40 flex w-[calc(100%-1rem)] max-w-[280px] -translate-x-1/2 flex-col items-center gap-2 rounded-xl border border-brand-blue-dark/[0.06] bg-white/90 px-3 py-2 shadow-[0_6px_32px_-12px_rgba(10,26,47,0.1)] backdrop-blur-md sm:bottom-[6.25rem] sm:max-w-none sm:gap-3 sm:rounded-2xl sm:px-6 sm:py-3 md:bottom-[7.25rem]">
-      <span className="text-center text-[10px] font-medium uppercase tracking-[0.22em] text-brand-muted sm:text-[12px] sm:tracking-widest">
-        Choisis ta carnation
-      </span>
-      <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
-        {presets.map((preset) => (
-          <button
-            key={preset}
-            type="button"
-            aria-pressed={active === preset}
-            onClick={() => {
-              setActive(preset);
-              onPresetChange(preset);
-            }}
-            className={`text-[12px] uppercase tracking-wider transition-colors duration-500 ease-out sm:text-[14px] ${
-              active === preset
-                ? "font-bold text-brand-gold"
-                : "text-brand-blue-dark/50 hover:text-brand-blue-dark"
-            }`}
+    <div className="absolute bottom-[4.35rem] left-1/2 z-40 w-max max-w-[calc(100vw-1.75rem)] -translate-x-1/2 sm:bottom-[6.25rem] md:bottom-[7.25rem]">
+      <div className="rounded-full border border-brand-blue-dark/[0.08] bg-white/93 px-1 py-1 shadow-[0_4px_24px_-8px_rgba(10,26,47,0.12),0_1px_0_rgba(255,255,255,0.9)_inset] backdrop-blur-xl">
+        <div className="flex flex-col items-stretch gap-1.5 px-2 py-1.5 sm:flex-row sm:items-center sm:gap-0 sm:px-1 sm:py-1">
+          <span className="px-1 text-center font-sans text-[8px] font-medium uppercase leading-tight tracking-[0.26em] text-brand-muted sm:max-w-[4.5rem] sm:px-2 sm:text-left sm:text-[9px] sm:leading-snug sm:tracking-[0.22em]">
+            Choisis ta
+            <span className="hidden sm:inline"> </span>
+            <br className="sm:hidden" />
+            carnation
+          </span>
+
+          <div
+            className="hidden h-7 w-px shrink-0 bg-brand-blue-dark/[0.08] sm:block"
+            aria-hidden
+          />
+
+          <div
+            className="flex justify-center rounded-full bg-brand-blue-dark/[0.04] p-0.5 sm:justify-start"
+            role="group"
+            aria-label="Intensité de la carnation"
           >
-            {preset}
-          </button>
-        ))}
+            {presets.map((preset) => {
+              const isOn = active === preset;
+              return (
+                <button
+                  key={preset}
+                  type="button"
+                  aria-pressed={isOn}
+                  onClick={() => {
+                    setActive(preset);
+                    onPresetChange(preset);
+                  }}
+                  className={`min-w-[3.25rem] rounded-full px-2.5 py-1.5 font-sans text-[10px] font-semibold uppercase tracking-[0.12em] transition-all duration-500 ease-out sm:min-w-0 sm:px-3.5 sm:py-2 sm:text-[11px] ${
+                    isOn
+                      ? "bg-white text-brand-gold shadow-[0_1px_3px_rgba(10,26,47,0.08)]"
+                      : "text-brand-blue-dark/45 hover:text-brand-blue-dark"
+                  }`}
+                >
+                  {preset}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );

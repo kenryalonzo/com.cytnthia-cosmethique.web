@@ -60,19 +60,30 @@ export default function HeroSection() {
       </button>
 
       {/* Main Card */}
-      <div className="relative flex min-h-[min(640px,82svh)] w-full max-w-[1200px] flex-col items-center justify-center overflow-hidden rounded-[24px] bg-vignette pb-1 shadow-[0_28px_80px_-24px_rgba(10,26,47,0.13)] sm:min-h-[min(600px,78vh)] sm:rounded-[32px] sm:pb-0 md:rounded-[36px]">
+      <div className="relative flex min-h-[min(640px,82svh)] w-full max-w-[1200px] flex-col items-center justify-center overflow-hidden rounded-[24px] bg-vignette pb-1 shadow-[0_36px_100px_-32px_rgba(10,26,47,0.17),0_1px_0_rgba(255,255,255,0.65)_inset] sm:min-h-[min(600px,78vh)] sm:rounded-[32px] sm:pb-0 md:rounded-[36px]">
         <NavigationBar />
 
-        {/* Background Typography — ultra-subtle anchor */}
+        {/* Background typography — brand signature layer */}
         <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
-          <h1 className="select-none px-2 text-center font-sans text-[clamp(2.5rem,9.5vw,7.5rem)] font-extralight leading-none tracking-[0.22em] text-brand-blue-dark/[0.045] sm:tracking-[0.32em] md:pl-[0.2em] md:text-[clamp(3.25rem,11vw,7.5rem)] md:tracking-[0.42em]">
+          <h1
+            className="font-signature select-none bg-gradient-to-b from-brand-blue-dark/[0.13] to-brand-blue-dark/[0.062] bg-clip-text px-2 text-center text-[clamp(3.4rem,14vw,11rem)] font-semibold leading-[0.92] tracking-[0.12em] [-webkit-background-clip:text] sm:px-4 sm:tracking-[0.16em] md:text-[clamp(4.25rem,15vw,12rem)] md:tracking-[0.2em] [filter:blur(0.35px)]"
+            style={{ WebkitTextFillColor: "transparent", color: "transparent" }}
+          >
             CYNTHIA
           </h1>
         </div>
 
         {/* 3D Canvas */}
         <div className="absolute inset-0 z-20 pointer-events-auto">
-          <Canvas camera={{ position: [0, 0, 8], fov: 45 }} dpr={[1, 2]}>
+          <Canvas
+            camera={{ position: [0, 0, 8], fov: 45 }}
+            dpr={[1, 2]}
+            gl={{ antialias: true, alpha: true }}
+            onCreated={({ gl }) => {
+              gl.setClearAlpha(0);
+              gl.toneMappingExposure = 1.06;
+            }}
+          >
             <Suspense fallback={null}>
               <PearlCapsule3D preset={preset} />
             </Suspense>

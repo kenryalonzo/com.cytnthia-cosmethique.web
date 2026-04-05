@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-signature: var(--font-cormorant-signature), ui-serif, Georgia, serif;
 
   /* Brand — muted champagne gold, less saturation */
   --color-brand-gold: #c6a86a;
@@ -18,12 +19,13 @@
   --color-brand-bg: #faf9f7;
   --color-brand-muted: #6b6b76;
 
-  /* Custom Backgrounds */
+  /* Custom Backgrounds — soft center lift, gentle edge depth */
   --background-vignette: radial-gradient(
-    ellipse 85% 75% at 50% 45%,
+    ellipse 88% 78% at 50% 42%,
     rgba(255, 255, 255, 1) 0%,
-    rgba(245, 243, 239, 1) 55%,
-    rgba(236, 234, 229, 1) 100%
+    rgba(248, 246, 242, 1) 48%,
+    rgba(238, 235, 228, 1) 78%,
+    rgba(228, 224, 216, 1) 100%
   );
 }
 
