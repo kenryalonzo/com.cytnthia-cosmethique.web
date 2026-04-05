@@ -32,25 +32,25 @@ export default function NavigationBar() {
       <div className="hidden md:flex items-center space-x-12">
         <a
           href="#services"
-          className="text-[18px] uppercase tracking-[0.04em] text-brand-gold font-medium transition-colors"
+          className="text-[18px] font-medium uppercase tracking-[0.04em] text-brand-gold transition-colors duration-500"
         >
           Services
         </a>
         <a
           href="#treatments"
-          className="text-[18px] uppercase tracking-[0.04em] text-brand-blue-dark hover:text-brand-gold transition-colors font-medium"
+          className="text-[18px] font-medium uppercase tracking-[0.04em] text-brand-blue-dark transition-colors duration-500 hover:text-brand-gold"
         >
           Rituals
         </a>
         <a
           href="#philosophy"
-          className="text-[18px] uppercase tracking-[0.04em] text-brand-blue-dark hover:text-brand-gold transition-colors font-medium"
+          className="text-[18px] font-medium uppercase tracking-[0.04em] text-brand-blue-dark transition-colors duration-500 hover:text-brand-gold"
         >
           Philosophy
         </a>
         <a
           href="#experience"
-          className="text-[18px] uppercase tracking-[0.04em] text-brand-blue-dark hover:text-brand-gold transition-colors font-medium"
+          className="text-[18px] font-medium uppercase tracking-[0.04em] text-brand-blue-dark transition-colors duration-500 hover:text-brand-gold"
         >
           Experience
         </a>
@@ -60,14 +60,14 @@ export default function NavigationBar() {
       <div className="flex items-center space-x-8">
         <button
           type="button"
-          className="text-brand-blue-dark hover:text-brand-gold transition-colors"
+          className="text-brand-blue-dark transition-colors duration-500 hover:text-brand-gold"
           aria-label="User profile"
         >
           <User size={24} strokeWidth={1.5} />
         </button>
         <button
           type="button"
-          className="text-brand-blue-dark hover:text-brand-gold transition-colors"
+          className="text-brand-blue-dark transition-colors duration-500 hover:text-brand-gold"
           aria-label="Menu"
         >
           <Menu size={24} strokeWidth={1.5} />

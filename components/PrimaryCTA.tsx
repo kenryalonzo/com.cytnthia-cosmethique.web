@@ -1,9 +1,9 @@
 export default function PrimaryCTA() {
   return (
-    <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-40">
+    <div className="absolute bottom-11 left-1/2 z-40 -translate-x-1/2">
       <button
         type="button"
-        className="w-[320px] h-[64px] bg-brand-gold text-white uppercase font-bold text-[20px] tracking-[0.08em] rounded-md hover:bg-brand-gold-hover hover:scale-105 transition-all duration-300 shadow-[0_0_40px_rgba(253,207,2,0.6)]"
+        className="h-[58px] w-[280px] max-w-[calc(100vw-4rem)] rounded-md bg-brand-gold px-6 text-[17px] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_12px_40px_-8px_rgba(198,168,106,0.45)] transition-all duration-500 ease-out hover:bg-brand-gold-hover hover:shadow-[0_16px_48px_-10px_rgba(198,168,106,0.38)] hover:scale-[1.02] active:scale-[0.99]"
       >
         Discover Experience
       </button>

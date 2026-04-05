@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import SectionBackdropWord from "@/components/SectionBackdropWord";
 
 const eyebrowServices = [
   {
@@ -38,18 +39,22 @@ const lashServices = [
 
 export default function ServicesShowcase() {
   return (
-    <section className="bg-white py-24 px-8 md:px-16" id="services">
-      <div className="max-w-6xl mx-auto space-y-24">
+    <section
+      className="relative overflow-hidden bg-white py-28 px-8 md:px-16 md:py-36"
+      id="services"
+    >
+      <SectionBackdropWord word="RITUAL" />
+      <div className="relative z-10 mx-auto max-w-6xl space-y-28 md:space-y-32">
         {/* EYEBROWS SECTION */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-          <div className="space-y-6 lg:col-span-1">
-            <h2 className="text-sm uppercase tracking-[0.3em] text-brand-gold font-bold">
+          <div className="space-y-7 lg:col-span-1">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.38em] text-brand-gold">
               L&apos;Art du Regard
             </h2>
-            <h3 className="text-4xl md:text-5xl font-serif text-brand-blue-dark">
+            <h3 className="font-serif text-4xl leading-[1.12] tracking-tight text-brand-blue-dark md:text-[2.75rem]">
               Sourcils & Harmonie
             </h3>
-            <p className="text-brand-muted leading-relaxed">
+            <p className="max-w-md leading-[1.75] text-brand-muted">
               Nos techniques de micro-pigmentation sont conçues pour sublimer
               votre visage tout en respectant votre morphologie naturelle. Un
               rituel de précision pour un regard affirmé.
@@ -60,7 +65,7 @@ export default function ServicesShowcase() {
             {eyebrowServices.map((service, index) => (
               <div
                 key={index}
-                className="group p-8 border border-brand-blue-dark/5 bg-brand-bg rounded-2xl hover:border-brand-gold/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+                className="group rounded-2xl border border-brand-blue-dark/[0.06] bg-brand-bg p-8 shadow-[0_2px_24px_-12px_rgba(10,26,47,0.08)] transition-all duration-700 ease-out hover:-translate-y-0.5 hover:border-brand-gold/25 hover:shadow-[0_20px_50px_-24px_rgba(10,26,47,0.1)]"
               >
                 <div className="flex justify-between items-start mb-4">
                   <h4 className="text-xl font-bold uppercase tracking-tight text-brand-blue-dark">
@@ -85,12 +90,12 @@ export default function ServicesShowcase() {
         {/* LIPS & LASHES GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* LIPS CARD */}
-          <div className="relative group overflow-hidden rounded-[40px] bg-brand-blue-dark h-[500px]">
+          <div className="group relative h-[500px] overflow-hidden rounded-[36px] bg-brand-blue-dark shadow-[0_24px_60px_-28px_rgba(10,26,47,0.18)]">
             <Image
               src="https://images.unsplash.com/photo-1595475038784-bbe439ff41e6?auto=format&fit=crop&q=80&w=1200"
               alt="Maquillage permanent Candy Lips"
               fill
-              className="object-cover opacity-60 transition-transform duration-1000 group-hover:scale-105"
+              className="object-cover opacity-60 transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-linear-to-t from-brand-blue-dark via-transparent to-transparent" />
@@ -111,7 +116,7 @@ export default function ServicesShowcase() {
                 </span>
                 <button
                   type="button"
-                  className="text-xs uppercase tracking-widest text-white border-b border-white/50 pb-1 hover:border-brand-gold transition-colors"
+                  className="border-b border-white/45 pb-1 text-xs uppercase tracking-[0.28em] text-white transition-colors duration-500 hover:border-brand-gold/80"
                 >
                   Réserver
                 </button>
@@ -120,7 +125,7 @@ export default function ServicesShowcase() {
           </div>
 
           {/* LASHES LIST */}
-          <div className="bg-brand-bg rounded-[40px] p-12 flex flex-col justify-between">
+          <div className="flex flex-col justify-between rounded-[36px] border border-brand-blue-dark/[0.05] bg-brand-bg p-10 shadow-[0_2px_28px_-14px_rgba(10,26,47,0.06)] md:p-12">
             <div className="space-y-8">
               <div className="flex justify-between items-end">
                 <div className="space-y-2">
@@ -142,13 +147,13 @@ export default function ServicesShowcase() {
                 {lashServices.map((lash, i) => (
                   <div
                     key={i}
-                    className="flex justify-between items-center group cursor-pointer border-b border-brand-blue-dark/5 pb-2"
+                    className="group flex cursor-pointer items-center justify-between border-b border-brand-blue-dark/[0.06] pb-2.5 transition-colors duration-500"
                   >
-                    <span className="text-brand-blue-dark font-medium group-hover:text-brand-gold transition-colors">
+                    <span className="font-medium text-brand-blue-dark transition-colors duration-500 group-hover:text-brand-gold">
                       {lash.title}
                     </span>
                     <div className="grow border-t border-dotted border-brand-blue-dark/10 mx-4 opacity-50" />
-                    <span className="text-brand-blue-dark/50 group-hover:text-brand-gold transition-colors font-bold">
+                    <span className="font-bold text-brand-blue-dark/50 transition-colors duration-500 group-hover:text-brand-gold">
                       {lash.price}
                     </span>
                   </div>
@@ -159,7 +164,7 @@ export default function ServicesShowcase() {
             <div className="pt-8 flex items-center space-x-4">
               <button
                 type="button"
-                className="grow py-4 bg-brand-blue-dark text-white text-xs uppercase tracking-widest font-bold rounded-full hover:bg-brand-gold transition-colors"
+                className="grow rounded-full bg-brand-blue-dark py-4 text-xs font-bold uppercase tracking-[0.22em] text-white transition-all duration-500 ease-out hover:bg-brand-gold"
               >
                 Prendre RDV
               </button>

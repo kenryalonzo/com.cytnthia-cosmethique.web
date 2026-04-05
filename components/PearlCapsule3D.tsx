@@ -15,12 +15,12 @@ export default function PearlCapsule3D({ preset }: { preset: string }) {
   const coreColor = useMemo(() => {
     switch (preset) {
       case "Light":
-        return "#FFF0B3";
+        return "#ede6d8";
       case "Deep":
-        return "#D4AF37";
+        return "#b8945e";
       case "Medium":
       default:
-        return "#FDCF02";
+        return "#d9c9a4";
     }
   }, [preset]);
 
@@ -103,7 +103,7 @@ export default function PearlCapsule3D({ preset }: { preset: string }) {
           <meshStandardMaterial
             color={coreColor}
             emissive={coreColor}
-            emissiveIntensity={0.8}
+            emissiveIntensity={0.52}
             roughness={0.2}
             metalness={0.8}
           />
@@ -114,7 +114,7 @@ export default function PearlCapsule3D({ preset }: { preset: string }) {
       <Points ref={particlesRef} positions={particlesPosition}>
         <PointMaterial
           transparent
-          color="#FFF8D6"
+          color="#ebe3d4"
           size={0.05}
           sizeAttenuation={true}
           depthWrite={false}

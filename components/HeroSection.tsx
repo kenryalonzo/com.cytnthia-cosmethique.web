@@ -44,25 +44,28 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="relative w-full flex items-center justify-center p-4 md:p-12 min-h-[calc(100vh-64px)] overflow-hidden">
+    <div
+      id="hero"
+      className="relative flex min-h-[calc(100vh-64px)] w-full items-center justify-center overflow-hidden p-4 md:p-12"
+    >
       {/* Sound Toggle */}
       <button
         type="button"
         onClick={toggleSound}
         aria-pressed={soundEnabled}
         aria-label={soundEnabled ? "Couper le son ambiant" : "Activer le son ambiant"}
-        className="absolute top-8 right-8 z-50 text-brand-blue-dark/50 hover:text-brand-blue-dark text-xs uppercase tracking-widest transition-colors"
+        className="absolute top-8 right-8 z-50 text-xs uppercase tracking-[0.35em] text-brand-blue-dark/45 transition-colors duration-500 hover:text-brand-blue-dark"
       >
         {soundEnabled ? "Sound On" : "Sound Off"}
       </button>
 
       {/* Main Card */}
-      <div className="relative w-full max-w-[1200px] h-[600px] bg-vignette rounded-[40px] shadow-2xl overflow-hidden flex flex-col items-center justify-center">
+      <div className="relative flex h-[min(600px,78vh)] w-full max-w-[1200px] flex-col items-center justify-center overflow-hidden rounded-[36px] bg-vignette shadow-[0_28px_80px_-24px_rgba(10,26,47,0.13)]">
         <NavigationBar />
 
-        {/* Background Typography */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-          <h1 className="text-[120px] md:text-[220px] font-black text-brand-blue-dark/10 tracking-tighter leading-none select-none">
+        {/* Background Typography — ultra-subtle anchor */}
+        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
+          <h1 className="select-none pl-[0.2em] font-sans text-[clamp(3.25rem,11vw,7.5rem)] font-extralight tracking-[0.42em] text-brand-blue-dark/[0.045] leading-none">
             CYNTHIA
           </h1>
         </div>

@@ -11,7 +11,7 @@ export default function LightPresets({
   const presets = ["Light", "Medium", "Deep"];
 
   return (
-    <div className="absolute bottom-32 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center space-y-3 bg-white/80 backdrop-blur-md px-6 py-3 rounded-2xl shadow-sm border border-brand-blue-dark/5">
+    <div className="absolute bottom-[7.25rem] left-1/2 z-40 flex -translate-x-1/2 flex-col items-center space-y-3 rounded-2xl border border-brand-blue-dark/[0.06] bg-white/85 px-6 py-3 shadow-[0_6px_32px_-12px_rgba(10,26,47,0.1)] backdrop-blur-md">
       <span className="text-[12px] uppercase tracking-widest text-brand-muted font-medium">
         Choisis ta carnation
       </span>
@@ -25,7 +25,7 @@ export default function LightPresets({
               setActive(preset);
               onPresetChange(preset);
             }}
-            className={`text-[14px] uppercase tracking-wider transition-colors ${
+            className={`text-[14px] uppercase tracking-wider transition-colors duration-500 ease-out ${
               active === preset
                 ? "text-brand-gold font-bold"
                 : "text-brand-blue-dark/50 hover:text-brand-blue-dark"

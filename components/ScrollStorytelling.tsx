@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import SectionBackdropWord from "@/components/SectionBackdropWord";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -20,15 +21,16 @@ export default function ScrollStorytelling() {
         if (reveal.length) {
           gsap.fromTo(
             reveal,
-            { y: 50, opacity: 0 },
+            { y: 36, opacity: 0 },
             {
               y: 0,
               opacity: 1,
-              duration: 1,
-              stagger: 0.2,
+              duration: 1.25,
+              ease: "power2.out",
+              stagger: 0.18,
               scrollTrigger: {
                 trigger: s1,
-                start: "top 80%",
+                start: "top 82%",
               },
             },
           );
@@ -41,13 +43,13 @@ export default function ScrollStorytelling() {
         if (parallax) {
           gsap.fromTo(
             parallax,
-            { y: -50 },
+            { y: -32 },
             {
-              y: 50,
+              y: 32,
               ease: "none",
               scrollTrigger: {
                 trigger: s2,
-                scrub: true,
+                scrub: 0.85,
               },
             },
           );
@@ -60,14 +62,16 @@ export default function ScrollStorytelling() {
         if (fade.length) {
           gsap.fromTo(
             fade,
-            { opacity: 0, scale: 0.95 },
+            { opacity: 0, scale: 0.98 },
             {
               opacity: 1,
               scale: 1,
-              duration: 1.5,
+              duration: 1.35,
+              ease: "power2.out",
+              stagger: 0.12,
               scrollTrigger: {
                 trigger: s3,
-                start: "top 70%",
+                start: "top 74%",
               },
             },
           );
@@ -86,17 +90,18 @@ export default function ScrollStorytelling() {
       <section
         ref={section1Ref}
         id="philosophy"
-        className="min-h-screen flex items-center justify-center px-8 py-24"
+        className="relative flex min-h-screen items-center justify-center overflow-hidden px-8 py-28 md:py-36"
       >
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="reveal-text text-sm uppercase tracking-[0.2em] text-brand-gold font-bold">
+        <SectionBackdropWord word="ESSENCE" variant="mist" />
+        <div className="relative z-10 mx-auto max-w-4xl space-y-10 text-center md:space-y-12">
+          <h2 className="reveal-text text-xs font-semibold uppercase tracking-[0.32em] text-brand-gold">
             Our Philosophy
           </h2>
-          <p className="reveal-text text-4xl md:text-6xl font-serif leading-tight">
+          <p className="reveal-text font-serif text-4xl leading-[1.15] tracking-tight md:text-[3.25rem] md:leading-[1.12]">
             Beauty is not a routine. <br />
-            <span className="italic text-brand-muted">It is a ritual.</span>
+            <span className="text-brand-muted italic">It is a ritual.</span>
           </p>
-          <p className="reveal-text text-lg text-brand-muted max-w-2xl mx-auto leading-relaxed">
+          <p className="reveal-text mx-auto max-w-2xl text-lg leading-[1.75] text-brand-muted">
             At Cynthia Cosmétique, we believe in the power of nature combined
             with advanced science. Our pearl capsule technology delivers
             concentrated active ingredients directly to your skin, ensuring
@@ -109,19 +114,20 @@ export default function ScrollStorytelling() {
       <section
         ref={section2Ref}
         id="treatments"
-        className="relative min-h-screen flex items-center overflow-hidden"
+        className="relative flex min-h-screen items-center overflow-hidden"
       >
-        <div className="parallax-bg absolute inset-0 bg-brand-blue-dark/5 -z-10" />
-        <div className="container mx-auto px-8 py-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <h2 className="text-sm uppercase tracking-[0.2em] text-brand-gold font-bold">
+        <div className="parallax-bg absolute inset-0 -z-10 bg-brand-blue-dark/[0.04]" />
+        <SectionBackdropWord word="CARE" />
+        <div className="container relative z-10 mx-auto px-8 py-28 md:py-36">
+          <div className="grid grid-cols-1 items-center gap-16 md:grid-cols-2 md:gap-20">
+            <div className="space-y-9">
+              <h2 className="text-xs font-semibold uppercase tracking-[0.32em] text-brand-gold">
                 Signature Treatments
               </h2>
-              <h3 className="text-4xl md:text-5xl font-serif">
+              <h3 className="font-serif text-4xl leading-[1.12] tracking-tight md:text-[2.85rem]">
                 The Golden Pearl Facial
               </h3>
-              <p className="text-lg text-brand-muted leading-relaxed">
+              <p className="text-lg leading-[1.75] text-brand-muted">
                 Experience our most luxurious treatment. The Golden Pearl Facial
                 uses our proprietary serum capsules to deeply hydrate, firm, and
                 illuminate your complexion. A 90-minute journey to pure
@@ -129,12 +135,12 @@ export default function ScrollStorytelling() {
               </p>
               <button
                 type="button"
-                className="px-8 py-4 border border-brand-blue-dark text-brand-blue-dark uppercase tracking-widest text-sm font-bold hover:bg-brand-blue-dark hover:text-white transition-colors"
+                className="border border-brand-blue-dark/80 px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.22em] text-brand-blue-dark transition-all duration-500 ease-out hover:bg-brand-blue-dark hover:text-white"
               >
                 Book Treatment
               </button>
             </div>
-            <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-[min(560px,62vh)] overflow-hidden rounded-2xl shadow-[0_24px_60px_-24px_rgba(10,26,47,0.14)] md:h-[600px]">
               <Image
                 src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=1200"
                 alt="Soin spa de luxe"
@@ -152,19 +158,20 @@ export default function ScrollStorytelling() {
       <section
         ref={section3Ref}
         id="experience"
-        className="min-h-screen flex items-center justify-center px-8 py-24 bg-white"
+        className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-8 py-28 md:py-36"
       >
-        <div className="max-w-5xl mx-auto text-center space-y-16">
-          <div className="space-y-4 fade-in">
-            <h2 className="text-sm uppercase tracking-[0.2em] text-brand-gold font-bold">
+        <SectionBackdropWord word="GLOW" />
+        <div className="relative z-10 mx-auto max-w-5xl space-y-16 text-center md:space-y-20">
+          <div className="fade-in space-y-5">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.32em] text-brand-gold">
               The Cynthia Ritual
             </h2>
-            <h3 className="text-4xl md:text-5xl font-serif">
+            <h3 className="font-serif text-4xl leading-[1.12] tracking-tight md:text-[2.85rem]">
               A Cinematic Journey
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
             {[
               {
                 step: "01",
@@ -184,15 +191,15 @@ export default function ScrollStorytelling() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="fade-in p-8 rounded-2xl bg-brand-bg space-y-4 hover:-translate-y-2 transition-transform duration-500"
+                className="fade-in space-y-4 rounded-2xl border border-brand-blue-dark/[0.05] bg-brand-bg p-8 shadow-[0_2px_20px_-12px_rgba(10,26,47,0.06)] transition-transform duration-700 ease-out hover:-translate-y-1"
               >
-                <span className="text-4xl font-black text-brand-gold/30">
+                <span className="text-4xl font-light text-brand-gold/35">
                   {item.step}
                 </span>
-                <h4 className="text-xl font-bold uppercase tracking-wider">
+                <h4 className="text-lg font-semibold uppercase tracking-[0.18em]">
                   {item.title}
                 </h4>
-                <p className="text-brand-muted">{item.desc}</p>
+                <p className="leading-relaxed text-brand-muted">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -200,16 +207,17 @@ export default function ScrollStorytelling() {
       </section>
 
       {/* SECTION 4 — Holistic Wellness */}
-      <section className="min-h-screen flex items-center justify-center px-8 py-24 bg-brand-blue-dark text-white overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-brand-gold/50 to-transparent" />
-        <div className="max-w-4xl mx-auto text-center space-y-12 relative z-10">
-          <h2 className="text-sm uppercase tracking-[0.4em] text-brand-gold font-bold">
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-brand-blue-dark px-8 py-28 text-white md:py-36">
+        <SectionBackdropWord word="AURA" variant="dark" />
+        <div className="absolute top-0 left-0 h-px w-full bg-linear-to-r from-transparent via-brand-gold/35 to-transparent" />
+        <div className="relative z-10 mx-auto max-w-4xl space-y-12 text-center md:space-y-14">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.42em] text-brand-gold/90">
             Beyond Beauty
           </h2>
-          <h3 className="text-5xl md:text-7xl font-serif italic">
+          <h3 className="font-serif text-5xl italic leading-[1.08] md:text-6xl md:leading-[1.06]">
             Holistic Wellness
           </h3>
-          <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+          <p className="mx-auto max-w-2xl text-lg leading-[1.75] text-white/58">
             Because true radiance comes from within. Complement your treatments
             with our professional massages, prescriptive facials, and luxury
             nail care. A complete sanctuary in the heart of Douala.
@@ -222,7 +230,7 @@ export default function ScrollStorytelling() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="px-8 py-4 border border-white/10 rounded-full text-xs uppercase tracking-widest hover:border-brand-gold transition-colors cursor-default"
+                className="cursor-default rounded-full border border-white/[0.12] px-8 py-3.5 text-xs uppercase tracking-[0.26em] transition-colors duration-500 hover:border-brand-gold/50"
               >
                 {item}
               </div>
@@ -230,8 +238,8 @@ export default function ScrollStorytelling() {
           </div>
         </div>
         {/* Decorative elements */}
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-brand-gold/10 blur-[120px] rounded-full" />
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-brand-blue-dark/50 blur-[120px] rounded-full border border-brand-gold/5" />
+        <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-brand-gold/[0.08] blur-[140px]" />
+        <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full border border-brand-gold/[0.06] bg-brand-blue-dark/40 blur-[130px]" />
       </section>
     </div>
   );

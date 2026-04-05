@@ -6,9 +6,9 @@ export default function PlayButton() {
       <button
         type="button"
         aria-label="Lire le film de la marque"
-        className="w-16 h-16 rounded-full border border-brand-blue-dark/20 flex items-center justify-center hover:bg-brand-blue-dark/5 transition-colors group"
+        className="group flex h-16 w-16 items-center justify-center rounded-full border border-brand-blue-dark/18 transition-all duration-500 ease-out hover:border-brand-blue-dark/30 hover:bg-brand-blue-dark/[0.04]"
       >
-        <Play size={20} className="text-brand-blue-dark ml-1 group-hover:text-brand-gold transition-colors" fill="currentColor" />
+        <Play size={20} className="ml-1 text-brand-blue-dark transition-colors duration-500 group-hover:text-brand-gold" fill="currentColor" />
       </button>
       <span className="text-[18px] text-brand-muted leading-tight">
         Brand<br />Film
