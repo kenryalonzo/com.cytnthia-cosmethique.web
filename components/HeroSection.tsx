@@ -46,7 +46,7 @@ export default function HeroSection() {
   return (
     <div
       id="hero"
-      className="relative flex min-h-[calc(100vh-64px)] w-full items-center justify-center overflow-hidden p-4 md:p-12"
+      className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden px-3 pb-6 pt-4 sm:px-5 sm:pb-8 md:min-h-[calc(100vh-64px)] md:p-12"
     >
       {/* Sound Toggle */}
       <button
@@ -54,18 +54,18 @@ export default function HeroSection() {
         onClick={toggleSound}
         aria-pressed={soundEnabled}
         aria-label={soundEnabled ? "Couper le son ambiant" : "Activer le son ambiant"}
-        className="absolute top-8 right-8 z-50 text-xs uppercase tracking-[0.35em] text-brand-blue-dark/45 transition-colors duration-500 hover:text-brand-blue-dark"
+        className="absolute top-[4.5rem] right-3 z-50 text-[10px] uppercase tracking-[0.3em] text-brand-blue-dark/45 transition-colors duration-500 hover:text-brand-blue-dark sm:top-8 sm:right-6 sm:text-xs md:right-8"
       >
         {soundEnabled ? "Sound On" : "Sound Off"}
       </button>
 
       {/* Main Card */}
-      <div className="relative flex h-[min(600px,78vh)] w-full max-w-[1200px] flex-col items-center justify-center overflow-hidden rounded-[36px] bg-vignette shadow-[0_28px_80px_-24px_rgba(10,26,47,0.13)]">
+      <div className="relative flex min-h-[min(640px,82svh)] w-full max-w-[1200px] flex-col items-center justify-center overflow-hidden rounded-[24px] bg-vignette pb-1 shadow-[0_28px_80px_-24px_rgba(10,26,47,0.13)] sm:min-h-[min(600px,78vh)] sm:rounded-[32px] sm:pb-0 md:rounded-[36px]">
         <NavigationBar />
 
         {/* Background Typography — ultra-subtle anchor */}
         <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
-          <h1 className="select-none pl-[0.2em] font-sans text-[clamp(3.25rem,11vw,7.5rem)] font-extralight tracking-[0.42em] text-brand-blue-dark/[0.045] leading-none">
+          <h1 className="select-none px-2 text-center font-sans text-[clamp(2.5rem,9.5vw,7.5rem)] font-extralight leading-none tracking-[0.22em] text-brand-blue-dark/[0.045] sm:tracking-[0.32em] md:pl-[0.2em] md:text-[clamp(3.25rem,11vw,7.5rem)] md:tracking-[0.42em]">
             CYNTHIA
           </h1>
         </div>

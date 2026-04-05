@@ -14,7 +14,7 @@ export default function Home() {
         </GoldScrollThread>
       </main>
 
-      <footer className="relative z-10 border-t border-brand-blue-dark/[0.06] bg-white px-8 py-14 text-center">
+      <footer className="relative z-10 border-t border-brand-blue-dark/[0.06] bg-white px-4 py-10 text-center sm:px-8 sm:py-14">
         <p className="text-brand-muted text-sm uppercase tracking-widest">
           © 2026 Cynthia Cosmétique • L&apos;art du rituel
         </p>

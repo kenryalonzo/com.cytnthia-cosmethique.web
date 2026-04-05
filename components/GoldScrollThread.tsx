@@ -82,14 +82,22 @@ export default function GoldScrollThread({ children }: GoldScrollThreadProps) {
     return () => ctx.revert();
   }, [reducedMotion]);
 
+  useEffect(() => {
+    const onResize = () => {
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   if (reducedMotion) {
     return <div className="relative">{children}</div>;
   }
 
   return (
-    <div ref={wrapRef} className="relative flex w-full">
+    <div ref={wrapRef} className="relative w-full md:flex">
       <div
-        className="relative w-12 shrink-0 overflow-visible md:w-[4.5rem]"
+        className="pointer-events-none absolute top-0 bottom-0 left-0 z-[1] w-2.5 overflow-visible sm:w-3 md:relative md:z-auto md:w-[4.5rem] md:shrink-0"
         aria-hidden
       >
         <div
@@ -113,7 +121,7 @@ export default function GoldScrollThread({ children }: GoldScrollThreadProps) {
         >
           <div className="absolute inset-0 flex justify-center pt-6 opacity-[0.55] md:opacity-[0.5]">
             <svg
-              className="h-full min-h-[120vh] w-[42px] md:w-[52px]"
+              className="h-full min-h-[120vh] w-full max-w-[26px] sm:max-w-[32px] md:max-w-[52px]"
               preserveAspectRatio="none"
               viewBox="0 0 52 1200"
             >
@@ -165,7 +173,7 @@ export default function GoldScrollThread({ children }: GoldScrollThreadProps) {
         </div>
       </div>
 
-      <div className="min-w-0 flex-1">{children}</div>
+      <div className="relative z-[2] min-w-0 w-full md:flex-1">{children}</div>
     </div>
   );
 }

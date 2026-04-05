@@ -23,7 +23,7 @@ export default function SectionBackdropWord({
       aria-hidden
     >
       <span
-        className={`select-none font-sans font-extralight uppercase leading-none tracking-[0.28em] ${tone} text-[clamp(2.75rem,min(16vw,11rem),11rem)] max-w-full px-4 text-center`}
+        className={`max-w-full select-none px-3 text-center font-sans font-extralight uppercase leading-none tracking-[0.2em] sm:px-4 sm:tracking-[0.28em] ${tone} text-[clamp(2rem,min(14vw,11rem),11rem)]`}
       >
         {word}
       </span>

@@ -40,13 +40,13 @@ const lashServices = [
 export default function ServicesShowcase() {
   return (
     <section
-      className="relative overflow-hidden bg-white py-28 px-8 md:px-16 md:py-36"
+      className="relative overflow-hidden bg-white px-4 py-20 sm:px-8 sm:py-24 md:px-16 md:py-36"
       id="services"
     >
       <SectionBackdropWord word="RITUAL" />
-      <div className="relative z-10 mx-auto max-w-6xl space-y-28 md:space-y-32">
+      <div className="relative z-10 mx-auto max-w-6xl space-y-20 sm:space-y-24 md:space-y-32">
         {/* EYEBROWS SECTION */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-16">
           <div className="space-y-7 lg:col-span-1">
             <h2 className="text-xs font-semibold uppercase tracking-[0.38em] text-brand-gold">
               L&apos;Art du Regard
@@ -61,7 +61,7 @@ export default function ServicesShowcase() {
             </p>
           </div>
 
-          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:col-span-2">
             {eyebrowServices.map((service, index) => (
               <div
                 key={index}
@@ -88,9 +88,9 @@ export default function ServicesShowcase() {
         </div>
 
         {/* LIPS & LASHES GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
           {/* LIPS CARD */}
-          <div className="group relative h-[500px] overflow-hidden rounded-[36px] bg-brand-blue-dark shadow-[0_24px_60px_-28px_rgba(10,26,47,0.18)]">
+          <div className="group relative min-h-[380px] h-[min(72vw,480px)] overflow-hidden rounded-[28px] bg-brand-blue-dark shadow-[0_24px_60px_-28px_rgba(10,26,47,0.18)] sm:h-[500px] sm:min-h-0 sm:rounded-[36px]">
             <Image
               src="https://images.unsplash.com/photo-1595475038784-bbe439ff41e6?auto=format&fit=crop&q=80&w=1200"
               alt="Maquillage permanent Candy Lips"
@@ -99,7 +99,7 @@ export default function ServicesShowcase() {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-linear-to-t from-brand-blue-dark via-transparent to-transparent" />
-            <div className="absolute bottom-12 left-12 right-12 space-y-4">
+            <div className="absolute inset-x-5 bottom-6 space-y-3 sm:inset-x-12 sm:bottom-12 sm:space-y-4">
               <span className="text-brand-gold text-xs uppercase tracking-[0.3em] font-bold">
                 Lèvres Éclatantes
               </span>
@@ -125,7 +125,7 @@ export default function ServicesShowcase() {
           </div>
 
           {/* LASHES LIST */}
-          <div className="flex flex-col justify-between rounded-[36px] border border-brand-blue-dark/[0.05] bg-brand-bg p-10 shadow-[0_2px_28px_-14px_rgba(10,26,47,0.06)] md:p-12">
+          <div className="flex flex-col justify-between rounded-[28px] border border-brand-blue-dark/[0.05] bg-brand-bg p-6 shadow-[0_2px_28px_-14px_rgba(10,26,47,0.06)] sm:rounded-[36px] sm:p-10 md:p-12">
             <div className="space-y-8">
               <div className="flex justify-between items-end">
                 <div className="space-y-2">
@@ -178,7 +178,7 @@ export default function ServicesShowcase() {
         </div>
 
         {/* WELLNESS & CONTACT */}
-        <div className="pt-16 border-t border-brand-blue-dark/5 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-8">
+        <div className="flex flex-col items-center gap-8 border-t border-brand-blue-dark/5 pt-12 text-center md:flex-row md:justify-between md:pt-16 md:text-left">
           <div className="space-y-2">
             <h4 className="text-xs uppercase tracking-[0.4em] text-brand-gold font-bold">
               Nous Contacter

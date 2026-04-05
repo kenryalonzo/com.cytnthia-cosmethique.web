@@ -84,24 +84,30 @@ export default function ScrollStorytelling() {
     };
   }, []);
 
+  useEffect(() => {
+    const onResize = () => ScrollTrigger.refresh();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <div className="bg-brand-bg text-brand-blue-dark">
       {/* SECTION 1 — Philosophy */}
       <section
         ref={section1Ref}
         id="philosophy"
-        className="relative flex min-h-screen items-center justify-center overflow-hidden px-8 py-28 md:py-36"
+        className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-20 sm:px-8 sm:py-28 md:py-36"
       >
         <SectionBackdropWord word="ESSENCE" variant="mist" />
-        <div className="relative z-10 mx-auto max-w-4xl space-y-10 text-center md:space-y-12">
-          <h2 className="reveal-text text-xs font-semibold uppercase tracking-[0.32em] text-brand-gold">
+        <div className="relative z-10 mx-auto max-w-4xl space-y-8 text-center sm:space-y-10 md:space-y-12">
+          <h2 className="reveal-text text-[10px] font-semibold uppercase tracking-[0.28em] text-brand-gold sm:text-xs sm:tracking-[0.32em]">
             Our Philosophy
           </h2>
-          <p className="reveal-text font-serif text-4xl leading-[1.15] tracking-tight md:text-[3.25rem] md:leading-[1.12]">
+          <p className="reveal-text font-serif text-[1.65rem] leading-[1.18] tracking-tight sm:text-4xl sm:leading-[1.15] md:text-[3.25rem] md:leading-[1.12]">
             Beauty is not a routine. <br />
             <span className="text-brand-muted italic">It is a ritual.</span>
           </p>
-          <p className="reveal-text mx-auto max-w-2xl text-lg leading-[1.75] text-brand-muted">
+          <p className="reveal-text mx-auto max-w-2xl text-base leading-[1.75] text-brand-muted sm:text-lg">
             At Cynthia Cosmétique, we believe in the power of nature combined
             with advanced science. Our pearl capsule technology delivers
             concentrated active ingredients directly to your skin, ensuring
@@ -118,16 +124,16 @@ export default function ScrollStorytelling() {
       >
         <div className="parallax-bg absolute inset-0 -z-10 bg-brand-blue-dark/[0.04]" />
         <SectionBackdropWord word="CARE" />
-        <div className="container relative z-10 mx-auto px-8 py-28 md:py-36">
-          <div className="grid grid-cols-1 items-center gap-16 md:grid-cols-2 md:gap-20">
-            <div className="space-y-9">
-              <h2 className="text-xs font-semibold uppercase tracking-[0.32em] text-brand-gold">
+        <div className="container relative z-10 mx-auto px-4 py-20 sm:px-8 sm:py-28 md:py-36">
+          <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-20">
+            <div className="space-y-7 md:space-y-9">
+              <h2 className="text-[10px] font-semibold uppercase tracking-[0.28em] text-brand-gold sm:text-xs sm:tracking-[0.32em]">
                 Signature Treatments
               </h2>
-              <h3 className="font-serif text-4xl leading-[1.12] tracking-tight md:text-[2.85rem]">
+              <h3 className="font-serif text-[1.75rem] leading-[1.12] tracking-tight sm:text-4xl md:text-[2.85rem]">
                 The Golden Pearl Facial
               </h3>
-              <p className="text-lg leading-[1.75] text-brand-muted">
+              <p className="text-base leading-[1.75] text-brand-muted sm:text-lg">
                 Experience our most luxurious treatment. The Golden Pearl Facial
                 uses our proprietary serum capsules to deeply hydrate, firm, and
                 illuminate your complexion. A 90-minute journey to pure
@@ -135,12 +141,12 @@ export default function ScrollStorytelling() {
               </p>
               <button
                 type="button"
-                className="border border-brand-blue-dark/80 px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.22em] text-brand-blue-dark transition-all duration-500 ease-out hover:bg-brand-blue-dark hover:text-white"
+                className="w-full border border-brand-blue-dark/80 px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.22em] text-brand-blue-dark transition-all duration-500 ease-out hover:bg-brand-blue-dark hover:text-white sm:w-auto sm:px-8"
               >
                 Book Treatment
               </button>
             </div>
-            <div className="relative h-[min(560px,62vh)] overflow-hidden rounded-2xl shadow-[0_24px_60px_-24px_rgba(10,26,47,0.14)] md:h-[600px]">
+            <div className="relative h-72 w-full overflow-hidden rounded-xl shadow-[0_24px_60px_-24px_rgba(10,26,47,0.14)] sm:h-96 sm:rounded-2xl md:h-[600px]">
               <Image
                 src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=1200"
                 alt="Soin spa de luxe"
@@ -158,20 +164,20 @@ export default function ScrollStorytelling() {
       <section
         ref={section3Ref}
         id="experience"
-        className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-8 py-28 md:py-36"
+        className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-4 py-20 sm:px-8 sm:py-28 md:py-36"
       >
         <SectionBackdropWord word="GLOW" />
-        <div className="relative z-10 mx-auto max-w-5xl space-y-16 text-center md:space-y-20">
-          <div className="fade-in space-y-5">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.32em] text-brand-gold">
+        <div className="relative z-10 mx-auto max-w-5xl space-y-12 text-center sm:space-y-16 md:space-y-20">
+          <div className="fade-in space-y-4 sm:space-y-5">
+            <h2 className="text-[10px] font-semibold uppercase tracking-[0.28em] text-brand-gold sm:text-xs sm:tracking-[0.32em]">
               The Cynthia Ritual
             </h2>
-            <h3 className="font-serif text-4xl leading-[1.12] tracking-tight md:text-[2.85rem]">
+            <h3 className="font-serif text-[1.75rem] leading-[1.12] tracking-tight sm:text-4xl md:text-[2.85rem]">
               A Cinematic Journey
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
+          <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-3 md:gap-10">
             {[
               {
                 step: "01",
@@ -191,7 +197,7 @@ export default function ScrollStorytelling() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="fade-in space-y-4 rounded-2xl border border-brand-blue-dark/[0.05] bg-brand-bg p-8 shadow-[0_2px_20px_-12px_rgba(10,26,47,0.06)] transition-transform duration-700 ease-out hover:-translate-y-1"
+                className="fade-in space-y-3 rounded-2xl border border-brand-blue-dark/[0.05] bg-brand-bg p-6 shadow-[0_2px_20px_-12px_rgba(10,26,47,0.06)] transition-transform duration-700 ease-out hover:-translate-y-1 sm:space-y-4 sm:p-8"
               >
                 <span className="text-4xl font-light text-brand-gold/35">
                   {item.step}
@@ -207,22 +213,22 @@ export default function ScrollStorytelling() {
       </section>
 
       {/* SECTION 4 — Holistic Wellness */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-brand-blue-dark px-8 py-28 text-white md:py-36">
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-brand-blue-dark px-4 py-20 text-white sm:px-8 sm:py-28 md:py-36">
         <SectionBackdropWord word="AURA" variant="dark" />
         <div className="absolute top-0 left-0 h-px w-full bg-linear-to-r from-transparent via-brand-gold/35 to-transparent" />
-        <div className="relative z-10 mx-auto max-w-4xl space-y-12 text-center md:space-y-14">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.42em] text-brand-gold/90">
+        <div className="relative z-10 mx-auto max-w-4xl space-y-10 text-center sm:space-y-12 md:space-y-14">
+          <h2 className="text-[10px] font-semibold uppercase tracking-[0.32em] text-brand-gold/90 sm:text-xs sm:tracking-[0.42em]">
             Beyond Beauty
           </h2>
-          <h3 className="font-serif text-5xl italic leading-[1.08] md:text-6xl md:leading-[1.06]">
+          <h3 className="font-serif text-[2.25rem] italic leading-[1.1] sm:text-5xl sm:leading-[1.08] md:text-6xl md:leading-[1.06]">
             Holistic Wellness
           </h3>
-          <p className="mx-auto max-w-2xl text-lg leading-[1.75] text-white/58">
+          <p className="mx-auto max-w-2xl text-base leading-[1.75] text-white/58 sm:text-lg">
             Because true radiance comes from within. Complement your treatments
             with our professional massages, prescriptive facials, and luxury
             nail care. A complete sanctuary in the heart of Douala.
           </p>
-          <div className="flex flex-wrap justify-center gap-8 pt-8">
+          <div className="flex flex-wrap justify-center gap-4 pt-6 sm:gap-8 sm:pt-8">
             {[
               "Massage Équilibrant",
               "Soin Visage Expert",
@@ -230,7 +236,7 @@ export default function ScrollStorytelling() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="cursor-default rounded-full border border-white/[0.12] px-8 py-3.5 text-xs uppercase tracking-[0.26em] transition-colors duration-500 hover:border-brand-gold/50"
+                className="cursor-default rounded-full border border-white/[0.12] px-5 py-3 text-[10px] uppercase tracking-[0.22em] transition-colors duration-500 hover:border-brand-gold/50 sm:px-8 sm:py-3.5 sm:text-xs sm:tracking-[0.26em]"
               >
                 {item}
               </div>
